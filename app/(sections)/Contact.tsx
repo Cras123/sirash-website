@@ -18,10 +18,17 @@ export default function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error("Request failed");
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Request failed");
+      }
+
       setStatus("success");
       form.reset();
-    } catch {
+    } catch (error) {
+      console.error("Contact form error:", error);
       setStatus("error");
     }
   }
