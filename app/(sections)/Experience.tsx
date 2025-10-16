@@ -32,14 +32,18 @@ const education: Item[] = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-12">
+    <section id="experience" className="relative py-16">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/5 via-transparent to-purple-900/5 -z-10" />
       <div className="mx-auto w-[min(1100px,92%)] grid gap-6 md:grid-cols-2">
         <div>
-          <h2 className="text-2xl font-bold">Experience</h2>
-          <ul className="mt-4 space-y-6">
+          <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            Experience
+          </h2>
+          <ul className="mt-6 space-y-8">
             {experience.map((e) => (
-              <li key={e.title} className="relative pl-6">
-                <span className="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-blue-400" />
+              <li key={e.title} className="relative pl-8 group">
+                <span className="absolute left-0 top-2 h-4 w-4 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 shadow-lg shadow-purple-500/50 group-hover:scale-125 transition-transform duration-300" />
                 <div className="text-sm text-neutral-400">{e.period}</div>
                 <div className="font-semibold">
                   {e.title} · {e.org}
@@ -50,11 +54,13 @@ export default function Experience() {
           </ul>
         </div>
         <div>
-          <h2 className="text-2xl font-bold">Education</h2>
-          <ul className="mt-4 space-y-6">
+          <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            Education
+          </h2>
+          <ul className="mt-6 space-y-8">
             {education.map((e) => (
-              <li key={e.title} className="relative pl-6">
-                <span className="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-blue-400" />
+              <li key={e.title} className="relative pl-8 group">
+                <span className="absolute left-0 top-2 h-4 w-4 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 shadow-lg shadow-cyan-500/50 group-hover:scale-125 transition-transform duration-300" />
                 <div className="text-sm text-neutral-400">{e.period}</div>
                 <div className="font-semibold">
                   {e.title} · {e.org}

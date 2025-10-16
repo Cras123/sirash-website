@@ -1,44 +1,76 @@
 import Image from "next/image";
+import ScrambleText from "../components/ScrambleText";
 
 export default function Hero() {
   return (
-    <section className="pt-16 pb-10 bg-gradient-to-b from-[#0b0d10] to-transparent dark:from-[#0b0d10]">
-      <div className="mx-auto w-[min(1100px,92%)] grid md:grid-cols-2 items-center gap-10">
-        <div>
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-            Sirash Maharjan
-          </h1>
-          <p className="mt-2 text-lg md:text-xl text-neutral-500">
+    <section className="relative pt-32 pb-20 overflow-hidden min-h-[100vh] flex items-center">
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-cyan-900/20 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent -z-10" />
+
+      {/* Background Photo - Right Side with fade */}
+      <div className="absolute right-0 top-0 bottom-0 w-[55%] md:w-[50%] -z-10">
+        <div className="relative h-full w-full">
+          <Image
+            src="/images/profile.jpg"
+            alt="Sirash Maharjan"
+            fill
+            priority
+            className="object-cover object-center"
+            style={{
+              maskImage:
+                "linear-gradient(to left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0) 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0) 100%)",
+            }}
+          />
+          {/* Gradient overlay on photo for blend */}
+          <div className="absolute inset-0 bg-gradient-to-l from-purple-900/30 via-transparent to-transparent" />
+        </div>
+      </div>
+
+      <div className="mx-auto w-[min(1100px,92%)] relative z-10">
+        <div className="max-w-3xl space-y-6">
+          {/* Animated scramble text for name */}
+          <div className="mb-6 space-y-2">
+            <ScrambleText text="SIRASH" />
+            <ScrambleText text="MAHARJAN" />
+          </div>
+
+          <p className="text-xl md:text-2xl text-transparent bg-gradient-to-r from-purple-300 to-cyan-300 bg-clip-text font-semibold">
             Full-Stack Developer | Web3 Enthusiast | Data Analyst
           </p>
-          <p className="mt-4 max-w-prose text-neutral-400">
+
+          <p className="text-lg md:text-xl text-neutral-300 max-w-2xl leading-relaxed">
             I design and ship reliable web apps with modern JavaScript, clean
             architecture, and a focus on performance.
           </p>
-          <div className="mt-5 flex gap-3">
+
+          <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#projects"
-              className="px-4 py-2 rounded-xl bg-blue-400 text-black font-semibold hover:opacity-90 transition"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold hover:shadow-xl hover:shadow-purple-500/50 hover:scale-105 transition-all duration-300"
             >
               View Projects
             </a>
             <a
               href="mailto:hello@sirashmaharjan.com"
-              className="px-4 py-2 rounded-xl border border-neutral-700 hover:bg-neutral-800 transition"
+              className="px-6 py-3 rounded-full border-2 border-purple-500/50 hover:bg-purple-500/10 hover:border-purple-500 transition-all duration-300 font-semibold text-neutral-200"
             >
               Email Me
             </a>
           </div>
-        </div>
-        <div className="justify-self-end pr-6 md:pr-12">
-          <div className="h-56 w-56 sm:h-72 sm:w-72 md:h-[420px] md:w-[420px] rounded-2xl border border-neutral-800 bg-neutral-900/40 flex items-center justify-center text-neutral-500">
-            <Image
-              src="/images/profile.jpg"
-              alt="Sirash Maharjan"
-              width={420}
-              height={420}
-              className="w-full h-full object-cover rounded-2xl"
-            />
+
+          {/* Quick stats or badges */}
+          <div className="mt-10 flex flex-wrap gap-6 text-sm text-neutral-400">
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 animate-pulse" />
+              <span>Based in Sydney</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 animate-pulse" />
+              <span>Available for work</span>
+            </div>
           </div>
         </div>
       </div>

@@ -13,14 +13,17 @@ const posts = [
 
 export default function Blog() {
   return (
-    <section id="blog" className="py-12">
+    <section id="blog" className="relative py-16">
+      <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/5 via-transparent to-purple-900/5 -z-10" />
       <div className="mx-auto w-[min(1100px,92%)]">
-        <h2 className="text-2xl font-bold mb-4">Updates</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          Updates
+        </h2>
+        <div className="grid gap-6 sm:grid-cols-2">
           {posts.map((p) => (
             <article
               key={p.title}
-              className="rounded-2xl border border-neutral-800 bg-neutral-950/40 p-4"
+              className="group rounded-2xl border border-purple-500/30 bg-neutral-950/40 backdrop-blur p-6 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 cursor-pointer"
             >
               <div className="text-xs text-neutral-500">{p.date}</div>
               <h3 className="font-semibold mt-1">{p.title}</h3>

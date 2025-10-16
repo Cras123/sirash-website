@@ -34,9 +34,12 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-12">
+    <section id="contact" className="relative py-16">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent -z-10" />
       <div className="mx-auto w-[min(1100px,92%)]">
-        <h2 className="text-2xl font-bold">Contact</h2>
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+          Contact
+        </h2>
         <p className="text-neutral-400 mt-1">
           Got a project or role in mind? Let&apos;s talk.
         </p>
@@ -45,27 +48,27 @@ export default function Contact() {
             name="name"
             placeholder="Your name"
             required
-            className="rounded-xl border border-neutral-800 bg-neutral-950/40 px-3 py-2"
+            className="rounded-xl border border-purple-500/30 bg-neutral-950/60 backdrop-blur px-4 py-3 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
           />
           <input
             type="email"
             name="email"
             placeholder="Your email"
             required
-            className="rounded-xl border border-neutral-800 bg-neutral-950/40 px-3 py-2"
+            className="rounded-xl border border-purple-500/30 bg-neutral-950/60 backdrop-blur px-4 py-3 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
           />
           <textarea
             name="message"
             placeholder="Your message"
             rows={5}
             required
-            className="rounded-xl border border-neutral-800 bg-neutral-950/40 px-3 py-2"
+            className="rounded-xl border border-purple-500/30 bg-neutral-950/60 backdrop-blur px-4 py-3 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all resize-none"
           />
           <button
             disabled={status === "loading"}
-            className="px-4 py-2 rounded-xl bg-blue-400 text-black font-semibold disabled:opacity-60"
+            className="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
           >
-            {status === "loading" ? "Sending..." : "Send"}
+            {status === "loading" ? "Sending..." : "Send Message"}
           </button>
           {status === "success" && (
             <p className="text-green-500 text-sm">
