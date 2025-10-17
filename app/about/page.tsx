@@ -26,8 +26,9 @@ export default function AboutPage() {
             <div className="space-y-6">
               <div className="prose prose-invert max-w-none">
                 <p className="text-lg text-neutral-300 leading-relaxed">
-                  I&apos;m a full‑stack developer who enjoys building practical
-                  products with modern tools, clean code, and a bias for action.
+                  I&apos;m a gonna be the king of developer who enjoys building
+                  practical products with modern tools, clean code, and a bias
+                  for action.
                 </p>
                 <p className="text-neutral-400 leading-relaxed">
                   My background spans web apps, dashboards, and integrations. I
