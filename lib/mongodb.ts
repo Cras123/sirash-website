@@ -8,11 +8,10 @@ type Cached = {
 };
 
 declare global {
-  // eslint-disable-next-line no-var
   var _mongooseCache: Cached | undefined;
 }
 
-let cached: Cached = global._mongooseCache || { conn: null, promise: null };
+const cached: Cached = global._mongooseCache || { conn: null, promise: null };
 if (!global._mongooseCache) global._mongooseCache = cached;
 
 export default async function connectDB() {
