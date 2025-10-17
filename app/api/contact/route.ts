@@ -1,12 +1,15 @@
+// app/api/contact/route.ts
 import { NextResponse } from "next/server";
 import connectDB from "@/lib/mongodb";
 import Contact from "@/models/Contact";
+
+export const runtime = "nodejs"; // <- important
+export const dynamic = "force-dynamic"; // (optional) avoids static optimization here
 
 export async function POST(request: Request) {
   try {
     const { name, email, message } = await request.json();
 
-    // Validate required fields
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "All fields are required" },
@@ -14,26 +17,23 @@ export async function POST(request: Request) {
       );
     }
 
-    // Validate email format
-    const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-    if (!emailRegex.test(email)) {
+    // Better email check (allows long TLDs)
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailOk) {
       return NextResponse.json(
         { error: "Please enter a valid email address" },
         { status: 400 }
       );
     }
 
-    // Connect to database
     await connectDB();
 
-    // Create new contact document
     const contact = new Contact({
-      name: name.trim(),
-      email: email.trim().toLowerCase(),
-      message: message.trim(),
+      name: String(name).trim(),
+      email: String(email).trim().toLowerCase(),
+      message: String(message).trim(),
     });
 
-    // Save to database
     await contact.save();
 
     return NextResponse.json(
