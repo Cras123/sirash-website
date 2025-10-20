@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import InteractiveBackground from "../components/InteractiveBackground";
@@ -137,12 +138,25 @@ export default function AboutPage() {
 
               <div className="rounded-2xl border border-cyan-500/30 p-6 bg-neutral-950/60 backdrop-blur hover:border-cyan-500/50 transition-all duration-300">
                 <h3 className="font-bold text-lg bg-gradient-to-r from-cyan-300 to-purple-300 bg-clip-text text-transparent mb-4">
-                  Quick Links
+                  Get in Touch
                 </h3>
+
+                {/* Primary Contact Button */}
+                <Link
+                  href="/#contact"
+                  className="mb-4 flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105 transition-all duration-300"
+                >
+                  Send Message
+                </Link>
+
+                <p className="text-xs text-neutral-500 mb-4 text-center">
+                  or connect via
+                </p>
+
                 <ul className="space-y-3">
                   <li>
                     <a
-                      href="#"
+                      href="https://github.com/Cras123"
                       target="_blank"
                       rel="noreferrer"
                       className="text-purple-400 hover:text-purple-300 transition flex items-center gap-2"
@@ -152,7 +166,7 @@ export default function AboutPage() {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="https://www.linkedin.com/in/sirash-maharjan-6b753a251/"
                       target="_blank"
                       rel="noreferrer"
                       className="text-cyan-400 hover:text-cyan-300 transition flex items-center gap-2"
@@ -162,15 +176,15 @@ export default function AboutPage() {
                   </li>
                   <li>
                     <a
-                      href="mailto:hello@sirashmaharjan.com"
+                      href="mailto:maharjansirash1@gmail.com"
                       className="text-purple-400 hover:text-purple-300 transition flex items-center gap-2"
                     >
-                      <span>→</span> Email
+                      <span>→</span> maharjansirash1@gmail.com
                     </a>
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/pdf/Sirash-Maharjan-Resume.pdf"
                       target="_blank"
                       rel="noreferrer"
                       className="text-cyan-400 hover:text-cyan-300 transition flex items-center gap-2"

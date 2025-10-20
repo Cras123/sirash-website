@@ -7,34 +7,30 @@ type Project = {
   live?: string;
   repo?: string;
   color: string;
+  image?: string;
 };
 
 const projects: Project[] = [
   {
     title: "Goodwood Community Centre",
     description:
-      "Full‑stack platform for events, bookings, and memberships with Stripe and auth.",
+      "Full‑stack next.js app for managing events, bookings, and memberships with Stripe and auth.",
     tech: ["Next.js", "TypeScript", "MongoDB", "Stripe"],
-    live: "#",
-    repo: "#",
+    live: "https://goodwood-community-centre-1.vercel.app/",
+    repo: "https://github.com/Cras123/Goodwood-Community-Centre",
     color: "#8b5cf6",
+    image: "/images/goodwood.jpg",
   },
+
   {
-    title: "NRN Hub",
+    title: "Birthday wisher",
     description:
-      "Clean portal with calendar, news, tools. Edge caching and server actions.",
-    tech: ["Next.js", "Edge", "Server Actions"],
-    live: "#",
-    repo: "#",
+      "A full-stack MERN web app for creating and exploring birthday celebration listings, promoting happiness, creativity, and connection through a modern, responsive interface.",
+    tech: ["MongoDB", "Express.js", "React", "Node.js"],
+    live: "https://sampadas-birthday.onrender.com/",
+    repo: "https://github.com/Cras123/sampadas-birthday",
     color: "#06b6d4",
-  },
-  {
-    title: "Portfolio Starter",
-    description: "This website with minimal, fast, maintainable foundations.",
-    tech: ["React", "Next.js", "SEO"],
-    live: "#",
-    repo: "#",
-    color: "#a855f7",
+    image: "/images/sampadas-birthday.jpg",
   },
 ];
 
@@ -56,7 +52,7 @@ export default function Projects() {
             >
               {/* 3D Card Preview */}
               <div className="relative">
-                <Project3DCard color={p.color} height={200} />
+                <Project3DCard color={p.color} height={200} image={p.image} />
               </div>
 
               <div className="p-5 flex-1">

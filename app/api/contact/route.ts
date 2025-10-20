@@ -1,5 +1,6 @@
 // app/api/contact/route.ts
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 import connectDB from "@/lib/mongodb";
 import Contact from "@/models/Contact";
 
@@ -35,6 +36,46 @@ export async function POST(request: Request) {
     });
 
     await contact.save();
+
+    // Send email notification using Nodemailer (if credentials are configured)
+    if (process.env.EMAIL_USER && process.env.EMAIL_PASSWORD) {
+      try {
+        const transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASSWORD,
+          },
+        });
+
+        const mailOptions = {
+          from: process.env.EMAIL_USER,
+          to: process.env.EMAIL_USER, // Send to yourself
+          replyTo: email, // Allow replying directly to the sender
+          subject: `New Contact Form Submission from ${name}`,
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>From:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Message:</strong></p>
+            <p>${message.replace(/\n/g, "<br>")}</p>
+            <hr>
+            <p><small>This message was sent from your portfolio contact form.</small></p>
+          `,
+        };
+
+        await transporter.sendMail(mailOptions);
+        console.log("Email sent successfully to:", process.env.EMAIL_USER);
+      } catch (emailError) {
+        // Log the error but don't fail the request
+        console.error("Failed to send email notification:", emailError);
+        console.log("Contact saved to database but email notification failed");
+      }
+    } else {
+      console.log(
+        "Email credentials not configured - skipping email notification"
+      );
+    }
 
     return NextResponse.json(
       {

@@ -8,24 +8,24 @@ type Item = {
 const experience: Item[] = [
   {
     title: "Full-Stack Developer",
-    org: "Company A",
-    period: "2023 — Present",
+    org: "Goodwood Community Centre",
+    period: "Sep 2024 — June 2025",
     details: "Built and maintained web apps with Next.js and Node.js.",
   },
   {
-    title: "Software Engineer",
-    org: "Company B",
-    period: "2021 — 2023",
+    title: "Python Developer (internship)",
+    org: "The Perfect Resume",
+    period: "March 2024 — July 2024",
     details:
-      "Delivered features, improved performance, collaborated across teams.",
+      "Developed a Python-based resume builder and parser using Flask and OCR technology.",
   },
 ];
 
 const education: Item[] = [
   {
-    title: "B.S. in Computer Science",
-    org: "University X",
-    period: "2017 — 2021",
+    title: "Bachelor in Information Technology",
+    org: "Kings Open University",
+    period: "2022 — 2025",
     details: "Focused on software engineering and data analysis.",
   },
 ];

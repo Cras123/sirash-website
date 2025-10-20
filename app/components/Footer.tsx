@@ -4,10 +4,16 @@ export default function Footer() {
       <div className="mx-auto w-[min(1100px,92%)] flex items-center justify-between text-sm text-neutral-500">
         <span>© {new Date().getFullYear()} sirashmaharjan.com</span>
         <div className="flex gap-3">
-          <a href="#" className="hover:text-neutral-400">
+          <a
+            href="https://github.com/Cras123"
+            className="hover:text-neutral-400"
+          >
             GitHub
           </a>
-          <a href="#" className="hover:text-neutral-400">
+          <a
+            href="https://www.linkedin.com/in/sirash-maharjan-6b753a251/"
+            className="hover:text-neutral-400"
+          >
             LinkedIn
           </a>
         </div>

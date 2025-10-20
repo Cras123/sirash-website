@@ -22,14 +22,17 @@ export default function Contact() {
       const data = await res.json();
 
       if (!res.ok) {
+        console.error("Server error:", data.error);
         throw new Error(data.error || "Request failed");
       }
 
       setStatus("success");
       form.reset();
+      setTimeout(() => setStatus("idle"), 5000); // Reset after 5 seconds
     } catch (error) {
       console.error("Contact form error:", error);
       setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000); // Reset after 5 seconds
     }
   }
 
