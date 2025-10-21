@@ -9,6 +9,18 @@ export const dynamic = "force-dynamic"; // (optional) avoids static optimization
 
 export async function POST(request: Request) {
   try {
+    // Check if MongoDB URI is configured
+    if (!process.env.MONGODB_URI) {
+      console.error("MONGODB_URI is not configured");
+      return NextResponse.json(
+        {
+          error:
+            "Server configuration error. Please contact the administrator.",
+        },
+        { status: 500 }
+      );
+    }
+
     const { name, email, message } = await request.json();
 
     if (!name || !email || !message) {
@@ -86,9 +98,21 @@ export async function POST(request: Request) {
     );
   } catch (error) {
     console.error("Contact form error:", error);
-    return NextResponse.json(
-      { error: "Something went wrong. Please try again." },
-      { status: 500 }
-    );
+
+    // Provide more detailed error for debugging
+    let errorMessage = "Something went wrong. Please try again.";
+
+    if (error instanceof Error) {
+      console.error("Error details:", error.message);
+      // Don't expose internal errors to users, but log them
+      if (
+        error.message.includes("MONGODB_URI") ||
+        error.message.includes("MongoDB")
+      ) {
+        errorMessage = "Database connection error. Please try again later.";
+      }
+    }
+
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }
