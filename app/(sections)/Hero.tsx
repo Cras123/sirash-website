@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ScrambleText from "../components/ScrambleText";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -53,12 +54,12 @@ export default function Hero() {
             >
               View Projects
             </a>
-            <a
+            <Link
               href="/#contact"
               className="px-6 py-3 rounded-full border-2 border-purple-500/50 hover:bg-purple-500/10 hover:border-purple-500 transition-all duration-300 font-semibold text-neutral-200"
             >
               Email Me
-            </a>
+            </Link>
           </div>
 
           {/* Quick stats or badges */}

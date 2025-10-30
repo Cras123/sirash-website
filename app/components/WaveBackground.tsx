@@ -1,6 +1,6 @@
 "use client";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Suspense, useRef, useMemo } from "react";
+import { Suspense, useRef } from "react";
 import * as THREE from "three";
 
 function WavePlane() {
