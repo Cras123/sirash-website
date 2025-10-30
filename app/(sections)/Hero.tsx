@@ -54,7 +54,7 @@ export default function Hero() {
               View Projects
             </a>
             <a
-              href="mailto:hello@sirashmaharjan.com"
+              href="/#contact"
               className="px-6 py-3 rounded-full border-2 border-purple-500/50 hover:bg-purple-500/10 hover:border-purple-500 transition-all duration-300 font-semibold text-neutral-200"
             >
               Email Me

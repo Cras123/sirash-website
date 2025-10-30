@@ -9,6 +9,12 @@ export const dynamic = "force-dynamic"; // (optional) avoids static optimization
 
 export async function POST(request: Request) {
   try {
+    // Log environment check (without exposing values)
+    console.log("Environment check:", {
+      mongodbConfigured: !!process.env.MONGODB_URI,
+      emailConfigured: !!process.env.EMAIL_USER && !!process.env.EMAIL_PASSWORD,
+    });
+
     // Check if MongoDB URI is configured
     if (!process.env.MONGODB_URI) {
       console.error("MONGODB_URI is not configured");
@@ -39,7 +45,9 @@ export async function POST(request: Request) {
       );
     }
 
+    console.log("Attempting to connect to MongoDB...");
     await connectDB();
+    console.log("✅ MongoDB connected successfully");
 
     const contact = new Contact({
       name: String(name).trim(),
@@ -47,7 +55,9 @@ export async function POST(request: Request) {
       message: String(message).trim(),
     });
 
+    console.log("Saving contact to database...");
     await contact.save();
+    console.log("✅ Contact saved successfully");
 
     // Send email notification using Nodemailer (if credentials are configured)
     if (process.env.EMAIL_USER && process.env.EMAIL_PASSWORD) {
