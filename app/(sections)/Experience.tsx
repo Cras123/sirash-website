@@ -24,7 +24,7 @@ const experience: Item[] = [
 const education: Item[] = [
   {
     title: "Bachelor in Information Technology",
-    org: "Kings Open University",
+    org: "Kings Own University",
     period: "2022 — 2025",
     details: "Focused on software engineering and data analysis.",
   },
