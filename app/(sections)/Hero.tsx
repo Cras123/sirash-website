@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ScrambleText from "../components/ScrambleText";
 import Link from "next/link";
 
@@ -9,23 +8,27 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-cyan-900/20 -z-10" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent -z-10" />
 
-      {/* Background Photo - Right Side with fade */}
+      {/* Background Video - Right Side with fade */}
       <div className="absolute right-0 top-0 bottom-0 w-[55%] md:w-[50%] -z-10">
         <div className="relative h-full w-full">
-          <Image
-            src="/images/profile.jpg"
-            alt="Sirash Maharjan"
-            fill
-            priority
-            className="object-cover object-center"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover object-center"
             style={{
               maskImage:
                 "linear-gradient(to left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0) 100%)",
               WebkitMaskImage:
                 "linear-gradient(to left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0) 100%)",
             }}
-          />
-          {/* Gradient overlay on photo for blend */}
+          >
+            <source src="/videos/hero-video.mp4" type="video/mp4" />
+            {/* Fallback message if video doesn't load */}
+            Your browser does not support the video tag.
+          </video>
+          {/* Gradient overlay on video for blend */}
           <div className="absolute inset-0 bg-gradient-to-l from-purple-900/30 via-transparent to-transparent" />
         </div>
       </div>
