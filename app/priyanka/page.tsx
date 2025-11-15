@@ -20,9 +20,9 @@ interface TimeLeft {
 }
 
 export default function BirthdayPage() {
-  const BIRTHDAY_PASSWORD = "birthday2025";
+  const BIRTHDAY_PASSWORD = "iloveyou";
   const birthdayDate = new Date("2025-11-17T00:00:00");
-  const DEMO_MODE = false;
+  const DEMO_MODE = true;
 
   // 📸 ADD HER PHOTO URL HERE 📸
   // Put her photo in your /public folder (e.g., /public/birthday-photo.jpg)
@@ -39,6 +39,36 @@ export default function BirthdayPage() {
   const [isUnlocked, setIsUnlocked] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [showConfetti, setShowConfetti] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>(""); // currently displayed message
+
+  const emojis = [
+    {
+      symbol: "🎈",
+      msg: "🎈 तिमी बोल्दा लाग्छ, मसँगै हावा पनि मुस्कुराइदिन्छ।!",
+    },
+    {
+      symbol: "🎁",
+      msg: "🎁 Bade bade deshon mein aisi chhoti chhoti baatein hoti rehti hain, Senorita.",
+    },
+    {
+      symbol: "🎊",
+      msg: "🎊 Itni shiddat se maine tumhe paane ki koshish ki hai, ki har zarre ne mujhe tumse milane ki koshish ki hai. Kehte hain agar kisi cheez ko dil se chaaho, toh poori kainat tumhein usse milane ki koshish mein lag jaati hai.",
+    },
+    {
+      symbol: "🎉",
+      msg: "🎉 तिमी नहुँदा मनै खाली जस्तो हुन्छ, तर आज तिमी जन्मिएको दिन… म त पूर्ण हुन्छु।",
+    },
+    { symbol: "🍰", msg: "🍰 Teri aankhon ki namkeen mastiyaan" },
+    {
+      symbol: "🎂",
+      msg: "🎂 Tum ho mast, tum ho best,Tumhare bina lage life waste!",
+    },
+    { symbol: "✨", msg: "✨ May your dreams shine bright!" },
+    {
+      symbol: "💝",
+      msg: "💝 तिमी जन्मिएरमात्र म यो संसारलाई केही बढी प्रेम गर्छु",
+    },
+  ];
 
   useEffect(() => {
     if (DEMO_MODE) {
@@ -359,7 +389,6 @@ export default function BirthdayPage() {
                 Birthday Girl 👑
               </div>
             </div>
-
             <div
               className="relative inline-block"
               style={{ animation: "bounce 2s ease-in-out infinite" }}
@@ -502,15 +531,22 @@ export default function BirthdayPage() {
   return (
     <div className="min-h-screen relative flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-hidden">
       {/* Background with HER PHOTO */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 grid grid-cols-[25%_1fr_25%]">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="h-full bg-cover bg-center"
           style={{
-            backgroundImage: `url(${BACKGROUND_PHOTO})`,
-            filter: "brightness(0.3) blur(3px)",
+            backgroundImage: `url(${BACKGROUND_PHOTO2})`,
+            filter: "brightness(0.8) blur(1px)",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/75 via-indigo-900/75 to-cyan-900/75" />
+        <div className="h-full bg-black/10" />
+        <div
+          className="h-full bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${BACKGROUND_PHOTO2})`,
+            filter: "brightness(0.8) blur(1px)",
+          }}
+        />
       </div>
 
       {showConfetti && <SparkleRain />}
@@ -539,11 +575,11 @@ export default function BirthdayPage() {
           </div>
 
           <h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-3 sm:mb-4 leading-tight"
+            className="text-2xl sm:text-3xl md:text-3xl lg:text-6xl xl:text-5xl font-bold mb-3 sm:mb-4 leading-tight"
             style={{ animation: "slideInDown 0.8s ease-out" }}
           >
             <span className="inline-block bg-gradient-to-r from-blue-500 via-cyan-500 to-indigo-500 bg-clip-text text-transparent">
-              🎉 Happy Birthday! 🎂
+              🎉 Happy Birthday love! 🎂
             </span>
           </h1>
 
@@ -553,10 +589,12 @@ export default function BirthdayPage() {
           >
             November 17, 2025
           </p>
-
-          <div className="flex justify-center gap-2 sm:gap-3 flex-wrap">
-            {["🎈", "🎁", "🎊", "🎉", "🍰", "🎂", "✨", "💝"].map(
-              (emoji, i) => (
+          <p className="text-sm text-gray-500">
+            click the emoji to see the message
+          </p>
+          <div className="text-center">
+            <div className="flex justify-center gap-2 sm:gap-3 flex-wrap mb-4">
+              {emojis.map((emoji, i) => (
                 <span
                   key={i}
                   className="text-3xl sm:text-4xl md:text-5xl inline-block cursor-pointer hover:scale-125 transition-transform"
@@ -564,11 +602,32 @@ export default function BirthdayPage() {
                     animation: `bounce 1.5s ease-in-out infinite`,
                     animationDelay: `${i * 0.15}s`,
                   }}
+                  onClick={() => setMessage(emoji.msg)}
                 >
-                  {emoji}
+                  {emoji.symbol}
                 </span>
-              )
+              ))}
+            </div>
+
+            {message && (
+              <div className="mt-4 text-lg sm:text-xl md:text-2xl font-semibold text-gray-700 bg-yellow-100 p-3 rounded-lg inline-block animate-fadeIn">
+                {message}
+              </div>
             )}
+
+            <style>{`
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
           </div>
         </div>
 
@@ -594,9 +653,8 @@ export default function BirthdayPage() {
             ))}
           </div>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-800 text-center leading-relaxed font-semibold relative z-10">
-            🌟 Wishing you a day filled with love, laughter, and unforgettable
-            moments! May this year bring you endless joy, amazing adventures,
-            and all your dreams come true! ✨💖
+            🌟 To the most amazing girl in the world, Happy Birthday, my love!
+            Here’s to your happiness today and always. ✨💖
           </p>
         </div>
 
@@ -662,7 +720,7 @@ export default function BirthdayPage() {
                 style={{ animation: "bounce 1.5s ease-in-out infinite" }}
               />
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
-                🎉 Your Birthday Video! 🎉
+                🎉 Birthday Video! 🎉
               </h2>
             </div>
             <div
@@ -671,7 +729,7 @@ export default function BirthdayPage() {
             >
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                src="/priyanka/birthday.mp4"
                 title="Birthday Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
