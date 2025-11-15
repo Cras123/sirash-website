@@ -22,7 +22,7 @@ interface TimeLeft {
 export default function BirthdayPage() {
   const BIRTHDAY_PASSWORD = "iloveyou";
   const birthdayDate = new Date("2025-11-17T00:00:00");
-  const DEMO_MODE = true;
+  const DEMO_MODE = false;
 
   // 📸 ADD HER PHOTO URL HERE 📸
   // Put her photo in your /public folder (e.g., /public/birthday-photo.jpg)
