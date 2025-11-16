@@ -20,7 +20,7 @@ interface TimeLeft {
 }
 
 export default function BirthdayPage() {
-  const BIRTHDAY_PASSWORD = "iloveyou";
+  const BIRTHDAY_PASSWORD = "bby";
   const birthdayDate = new Date("2025-11-17T00:00:00");
   const DEMO_MODE = false;
 
@@ -589,6 +589,19 @@ export default function BirthdayPage() {
           >
             November 17, 2025
           </p>
+          <div
+            className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border-4 border-blue-300"
+            style={{ paddingBottom: "56.25%" }}
+          >
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="/priyanka/birthday.mp4"
+              title="Birthday Video"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
           <p className="text-sm text-gray-500">
             click the emoji to see the message
           </p>
@@ -674,10 +687,12 @@ export default function BirthdayPage() {
               />
             </div>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-2 sm:mb-3 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              🎬 Special Birthday Video 🎬
+              🎬 Special Video 🎬
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-4 sm:mb-6 font-medium">
               Enter the secret password to unlock your birthday surprise! 🔐✨
+              <br />
+              What do i call you?
             </p>
 
             <div className="max-w-md mx-auto">
@@ -720,7 +735,7 @@ export default function BirthdayPage() {
                 style={{ animation: "bounce 1.5s ease-in-out infinite" }}
               />
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
-                🎉 Birthday Video! 🎉
+                🎉 Its your moment to shine! 🎉
               </h2>
             </div>
             <div
@@ -729,7 +744,7 @@ export default function BirthdayPage() {
             >
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
-                src="/priyanka/birthday.mp4"
+                src="/priyanka/birthday2.mp4"
                 title="Birthday Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
