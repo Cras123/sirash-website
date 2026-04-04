@@ -7,17 +7,24 @@ type Item = {
 
 const experience: Item[] = [
   {
+    title: "IT Support Specialist",
+    org: "Cyberguard MSP",
+    period: "Nov 2025 — Present",
+    details:
+      "Provide technical support to end users by troubleshooting hardware, software, and network issues. Manage Microsoft 365, Azure AD, and Active Directory environments, configure user accounts and permissions, support VPN access, monitor backups, and maintain Hyper-V virtualization infrastructure.",
+  },
+  {
     title: "Full-Stack Developer",
-    org: "Goodwood Community Centre",
+    org: "Goodwood Community Centre (Internship work with real clients)",
     period: "Sep 2024 — June 2025",
     details: "Built and maintained web apps with Next.js and Node.js.",
   },
   {
-    title: "Python Developer (internship)",
-    org: "The Perfect Resume",
-    period: "March 2024 — July 2024",
+    title: "Customer Service Assistant",
+    org: "Occidental Hotel",
+    period: "May 2022 — Nov 2025",
     details:
-      "Developed a Python-based resume builder and parser using Flask and OCR technology.",
+      "Delivered customer support and handled front desk operations, assisting guests with enquiries, processing payments, resolving issues professionally, and coordinating with internal teams to ensure smooth daily operations.",
   },
 ];
 
@@ -27,6 +34,13 @@ const education: Item[] = [
     org: "Kings Own University",
     period: "2022 — 2025",
     details: "Focused on software engineering and data analysis.",
+  },
+  {
+    title: "IT Support Engineer Training",
+    org: "TechSkills",
+    period: "Sep 2025 — Nov 2025",
+    details:
+      "Hands-on training in IT support, system troubleshooting, Microsoft 365 administration, Active Directory, Azure fundamentals, ticketing systems, virtualization with Hyper-V, and enterprise IT support practices.",
   },
 ];
 

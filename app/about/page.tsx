@@ -7,7 +7,7 @@ import WaveBackground from "../components/WaveBackground";
 export const metadata = {
   title: "About Me",
   description:
-    "Learn more about Sirash Maharjan - Full-Stack Developer, Web3 Enthusiast, and Data Analyst",
+    "Learn more about Sirash Maharjan - IT Support Specialist, MSP Technician, and Aspiring Full-Stack Developer",
 };
 
 export default function AboutPage() {
@@ -27,41 +27,65 @@ export default function AboutPage() {
             <div className="space-y-6">
               <div className="prose prose-invert max-w-none">
                 <p className="text-lg text-neutral-300 leading-relaxed">
-                  I&apos;m a gonna be the king of developer who enjoys building
-                  practical products with modern tools, clean code, and a bias
-                  for action.
+                  I&apos;m an IT support specialist who genuinely loves
+                  technology — from diagnosing network faults and wrangling
+                  Active Directory environments to building full-stack web apps
+                  in my spare time.
                 </p>
                 <p className="text-neutral-400 leading-relaxed">
-                  My background spans web apps, dashboards, and integrations. I
-                  believe in writing maintainable code, shipping fast, and
-                  iterating based on feedback. Outside of work, you&apos;ll find
-                  me learning new technologies, lifting weights, and exploring
-                  innovative ideas in Web3 and data analytics.
+                  Currently working at a Managed Service Provider, I support
+                  businesses with their day-to-day IT needs — Microsoft 365,
+                  Azure AD, Hyper-V, and everything in between. I believe in
+                  solving problems properly, documenting everything, and never
+                  stopping learning. Outside of work, you&apos;ll find me
+                  building web projects, lifting weights, and exploring new
+                  technologies.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-300 to-cyan-300 bg-clip-text text-transparent">
+                <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-300 to-cyan-300 bg-clip-text text-transparent">
                   Technical Skills
                 </h2>
+                <p className="text-sm text-neutral-500 mb-3">
+                  IT Support &amp; Infrastructure
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-5">
+                  {[
+                    "Windows Server",
+                    "Active Directory",
+                    "Microsoft 365",
+                    "Azure AD",
+                    "Hyper-V",
+                    "Networking",
+                    "Group Policy",
+                    "RMM Tools",
+                    "Ticketing Systems",
+                  ].map((s) => (
+                    <span
+                      key={s}
+                      className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-2 text-sm text-purple-200 hover:border-purple-500/50 hover:bg-purple-500/20 transition-all duration-300 cursor-pointer text-center"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-sm text-neutral-500 mb-3">Web Development</p>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {[
                     "React",
                     "Next.js",
                     "Node.js",
                     "TypeScript",
-                    "PostgreSQL",
                     "MongoDB",
-                    "Auth",
+                    "PostgreSQL",
                     "REST APIs",
-                    "Testing",
-                    "Git",
                     "Docker",
-                    "CI/CD",
+                    "Git",
                   ].map((s) => (
                     <span
                       key={s}
-                      className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-2 text-sm text-purple-200 hover:border-purple-500/50 hover:bg-purple-500/20 transition-all duration-300 cursor-pointer text-center"
+                      className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200 hover:border-cyan-500/50 hover:bg-cyan-500/20 transition-all duration-300 cursor-pointer text-center"
                     >
                       {s}
                     </span>
@@ -77,30 +101,36 @@ export default function AboutPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-purple-400 mt-1">▹</span>
                     <span>
+                      Troubleshoot hardware, software, and network issues
+                      end-to-end for business clients
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-cyan-400 mt-1">▹</span>
+                    <span>
+                      Manage Microsoft 365, Azure AD, and on-premises Active
+                      Directory environments
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-purple-400 mt-1">▹</span>
+                    <span>
+                      Configure VPNs, Group Policy, DHCP, and Hyper-V
+                      virtualization infrastructure
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-cyan-400 mt-1">▹</span>
+                    <span>
                       Build full-stack web applications with modern frameworks
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-cyan-400 mt-1">▹</span>
-                    <span>
-                      Design and implement RESTful APIs and microservices
+                      as a side passion
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-purple-400 mt-1">▹</span>
                     <span>
-                      Integrate payment systems, authentication, and third-party
-                      services
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-cyan-400 mt-1">▹</span>
-                    <span>Optimize performance and ensure scalability</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-purple-400 mt-1">▹</span>
-                    <span>
-                      Collaborate with teams using agile methodologies
+                      Support end users with clarity, patience, and thorough
+                      documentation
                     </span>
                   </li>
                 </ul>
@@ -115,15 +145,15 @@ export default function AboutPage() {
                 <ul className="space-y-3 text-neutral-300">
                   <li className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500"></span>
-                    Communication
+                    Clear Communication
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500"></span>
-                    Problem Solving
+                    Systematic Problem Solving
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500"></span>
-                    Ownership
+                    Full Ownership
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500"></span>
@@ -133,6 +163,10 @@ export default function AboutPage() {
                     <span className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500"></span>
                     Adaptability
                   </li>
+                  <li className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500"></span>
+                    Genuine Curiosity
+                  </li>
                 </ul>
               </div>
 
@@ -141,7 +175,6 @@ export default function AboutPage() {
                   Get in Touch
                 </h3>
 
-                {/* Primary Contact Button */}
                 <Link
                   href="/#contact"
                   className="mb-4 flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105 transition-all duration-300"
@@ -166,7 +199,7 @@ export default function AboutPage() {
                   </li>
                   <li>
                     <a
-                      href="https://www.linkedin.com/in/sirash-maharjan-6b753a251/"
+                      href="https://www.linkedin.com/in/sirash-maharjan/"
                       target="_blank"
                       rel="noreferrer"
                       className="text-cyan-400 hover:text-cyan-300 transition flex items-center gap-2"

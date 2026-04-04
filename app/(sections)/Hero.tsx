@@ -42,12 +42,15 @@ export default function Hero() {
           </div>
 
           <p className="text-xl md:text-2xl text-transparent bg-gradient-to-r from-purple-300 to-cyan-300 bg-clip-text font-semibold">
-            Full-Stack Developer | Web3 Enthusiast | Data Analyst
+            IT Support Specialist | Helpdesk Technician | System Troubleshooter
+            | Aspiring Full-Stack Developer
           </p>
 
           <p className="text-lg md:text-xl text-neutral-300 max-w-2xl leading-relaxed">
-            I design and ship reliable web apps with modern JavaScript, clean
-            architecture, and a focus on performance.
+            Passionate technology professional focused on solving technical
+            problems, supporting users, and building modern web applications.
+            Experienced in troubleshooting systems and continuously developing
+            full-stack development skills.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">

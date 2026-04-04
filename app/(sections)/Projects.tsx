@@ -1,3 +1,4 @@
+"use client";
 import Project3DCard from "../components/Project3DCard";
 
 type Project = {
@@ -11,6 +12,27 @@ type Project = {
 };
 
 const projects: Project[] = [
+  {
+    title: "Business IT Infrastructure Deployment",
+    description:
+      "Setup of domain controller, Fileserver and Printer server, DHCP, and M365 integration.",
+    tech: [
+      "Windows Server 2019",
+      "Active Directory",
+      "Microsoft 365",
+      "Azure AD",
+      "Hyper-V",
+      "Networking",
+      "Group Policy",
+      "Backup and Recovery",
+      "RMM",
+      "Ticketing System",
+    ],
+    live: "",
+    repo: "",
+    color: "#2563eb",
+    image: "/images/it-infrastructure.jpg",
+  },
   {
     title: "Goodwood Community Centre",
     description:
@@ -48,6 +70,9 @@ export default function Projects() {
           {projects.map((p) => (
             <article
               key={p.title}
+              onClick={() => {
+                if (p.live) window.open(p.live, "_blank");
+              }}
               className="group rounded-2xl border border-neutral-800/50 bg-neutral-950/40 backdrop-blur overflow-hidden flex flex-col hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10"
             >
               {/* 3D Card Preview */}
