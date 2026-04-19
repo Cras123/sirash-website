@@ -6,27 +6,29 @@ import Post from "@/models/post";
 
 export async function PUT(
   req: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
+  const { id } = await params;
   const session = await getServerSession(authOptions);
   if (!session)
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   await connectDB();
   const body = await req.json();
-  const post = await Post.findByIdAndUpdate(params.id, body, { new: true });
+  const post = await Post.findByIdAndUpdate(id, body, { new: true });
   return NextResponse.json(post);
 }
 
 export async function DELETE(
   _: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
+  const { id } = await params;
   const session = await getServerSession(authOptions);
   if (!session)
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   await connectDB();
-  await Post.findByIdAndDelete(params.id);
+  await Post.findByIdAndDelete(id);
   return NextResponse.json({ success: true });
 }
