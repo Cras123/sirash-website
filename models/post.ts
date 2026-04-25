@@ -2,6 +2,7 @@ import mongoose, { Schema, Document } from "mongoose";
 
 export interface IPost extends Document {
   title: string;
+  slug: string;
   excerpt: string;
   content: string;
   readTime: string;
@@ -12,6 +13,7 @@ export interface IPost extends Document {
 const PostSchema = new Schema<IPost>(
   {
     title: { type: String, required: true },
+    slug: { type: String, required: true, unique: true, index: true },
     excerpt: { type: String, required: true },
     content: { type: String, required: true },
     readTime: { type: String, required: true },

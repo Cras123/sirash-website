@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import connectDB from "@/lib/mongodb";
 import Post from "@/models/post";
+import { generateUniqueSlug } from "@/lib/blog";
 
 export async function GET() {
   await connectDB();
@@ -17,6 +18,10 @@ export async function POST(req: Request) {
 
   await connectDB();
   const body = await req.json();
-  const post = await Post.create(body);
+  const slug = await generateUniqueSlug(body.title, async (candidate) => {
+    const existing = await Post.findOne({ slug: candidate }).lean();
+    return Boolean(existing);
+  });
+  const post = await Post.create({ ...body, slug });
   return NextResponse.json(post, { status: 201 });
 }

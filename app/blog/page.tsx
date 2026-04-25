@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import InteractiveBackground from "../components/InteractiveBackground";
 
 interface Post {
   _id: string;
+  slug?: string;
   title: string;
   excerpt: string;
   content: string;
@@ -277,17 +279,29 @@ export default function BlogPage() {
                   )}
 
                   <div className="flex items-center justify-between">
-                    <button
-                      onClick={() =>
-                        setExpanded(expanded === post._id ? null : post._id)
-                      }
-                      className="inline-flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition group-hover:gap-3"
-                    >
-                      {expanded === post._id ? "Show less" : "Read more"}
-                      <span className="transition-transform group-hover:translate-x-1">
-                        →
-                      </span>
-                    </button>
+                    {post.slug ? (
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="inline-flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition group-hover:gap-3"
+                      >
+                        Read article
+                        <span className="transition-transform group-hover:translate-x-1">
+                          →
+                        </span>
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() =>
+                          setExpanded(expanded === post._id ? null : post._id)
+                        }
+                        className="inline-flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition group-hover:gap-3"
+                      >
+                        {expanded === post._id ? "Show less" : "Read more"}
+                        <span className="transition-transform group-hover:translate-x-1">
+                          →
+                        </span>
+                      </button>
+                    )}
 
                     {session && (
                       <div className="flex gap-3">
